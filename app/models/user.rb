@@ -26,7 +26,6 @@ class User
   field :name
   validates :name, presence: true
   validates :name, :email, uniqueness: { case_sensitive: false }
-  # attr_accessor :name, :email, :password, :password_confirmation, :remember_me
 
   ## Confirmable
   # field :confirmation_token,   type: String
