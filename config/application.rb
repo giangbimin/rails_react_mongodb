@@ -26,7 +26,6 @@ end
 # require "active_record/railtie"
 
 
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -36,6 +35,8 @@ module Rail4Mongoid
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    # config.filter_parameters += [:password, :password_confirmation]
+    
     config.generators do |g|
 	    g.view_specs false
 	    g.helper_specs false
