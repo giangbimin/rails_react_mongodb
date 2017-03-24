@@ -1,16 +1,31 @@
 require_relative 'boot'
 
-require "rails/all"
+require "rails"
+
+# Import gems in Gemfile
+Bundler.require(*Rails.groups)
+
+# important that this is imported after gems in Gemfile are imported
+%w(
+  mongoid
+  action_controller
+  action_mailer
+  active_resource
+  active_job
+  active_model
+  sprockets
+  action_cable
+  action_view
+).each do |framework|
+begin
+  require "#{framework}/railtie"
+    rescue LoadError
+  end
+end
 # Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
 # require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "action_cable/engine"
-require "sprockets/railtie"
-require "rails/test_unit/railtie"
+
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
