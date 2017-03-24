@@ -14,7 +14,6 @@ Bundler.require(*Rails.groups)
   active_job
   active_model
   sprockets
-  action_cable
   action_view
 ).each do |framework|
 begin
@@ -24,7 +23,7 @@ begin
 end
 # Pick the frameworks you want:
 # require "active_record/railtie"
-
+require "action_cable/engine"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
