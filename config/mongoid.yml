@@ -1,0 +1,51 @@
+development:
+  clients:
+    default:
+      database: rail4_mongoid_development
+      hosts:
+        - localhost:27017
+      options:
+  options:
+test:
+  clients:
+    default:
+      database: rail4_mongoid_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
+# default: &default
+#   database: <%= ENV["MONGODB_NAME"] %>
+#   hosts:
+#     - <%= ENV["MONGODB_HOST"] %>
+# development:
+#   sessions:
+#     default:
+#       <<: *default
+#       options:
+#   options:
+# test:
+#   sessions:
+#     default:
+#       <<: *default
+#       options:
+#         read: primary
+#         max_retries: 1
+#         retry_interval: 0
+# production:
+#   sessions:
+#     default:
+#       database: two
+#       hosts:
+#         - mongo_pri.local:27017
+#         - mongo_sec.local:27017
+#       options:
+#         read: :primary_preferred
+# staging:
+#   sessions:
+#     default:
+#       <<: *default
+#       options:
